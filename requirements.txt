@@ -1,0 +1,15 @@
+fastapi
+pydantic
+pytorch
+transformers
+pandas
+matplotlib
+seaborn
+reportlab
+base64
+sqlite3
+contextlib
+openai
+enum
+uuid
+openpyxl
