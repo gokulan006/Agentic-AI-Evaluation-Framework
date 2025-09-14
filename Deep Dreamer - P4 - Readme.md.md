@@ -103,9 +103,11 @@ The frontend development server will start on `http://localhost:5173`
 Create a `.env` file in the root directory:
 
 ```
-VITE_API_BASE_URL=http://localhost:8000
-OPENAI_API_KEY=your_openai_api_key_here
-MODEL_PATH=./model/trained_agentic_evaluator
+OPENAI_API_KEY=XXXX
+PORT="8000"
+MODEL_PATH="./model/trained_agentic_evaluator.pt"
+OPENAI_MODEL="gpt-4"
+OPENAI_CHEAP_MODEL="gpt-3.5-turbo"
 ```
 
 ## Usage
@@ -124,15 +126,15 @@ The platform provides a RESTful API for programmatic access:
 
 ```bash
 # Single evaluation
-POST /api/evaluate
+POST /api/ai-evaluation/single
 {
   "prompt": "Your prompt here",
   "response": "AI response to evaluate",
   "reference": "Optional reference answer"
 }
 
-# Batch evaluation
-POST /api/evaluate/batch
+# Bulk evaluation
+POST /api/ai-evaluation/bulk
 {
   "evaluations": [
     {
@@ -143,31 +145,9 @@ POST /api/evaluate/batch
 }
 ```
 
-### Python SDK Example
-
-```python
-from ai_evaluator import EvaluatorClient
-
-client = EvaluatorClient(api_key="your_api_key")
-
-result = client.evaluate(
-    prompt="What is the capital of France?",
-    response="The capital of France is Paris.",
-    include_explanations=True
-)
-
-print(result.overall_score)
-print(result.metric_breakdown)
-```
-
 ## Model Training
 
 To retrain the evaluation model with custom data:
-
-```bash
-cd model
-python train_evaluator.py --data_path ../dataset/training_data.csv --epochs 10 --batch_size 16
-```
 
 Training hyperparameters:
 - Learning rate: 2e-5 with linear decay
@@ -183,8 +163,6 @@ Training hyperparameters:
 ```
 ├── backend/
 │   ├── main.py              # FastAPI application
-│   ├── requirements.txt     # Python dependencies
-│   └── model/              # ML model files
 ├── src/
 │   ├── components/         # React components
 │   ├── App.tsx            # Main application
@@ -194,16 +172,9 @@ Training hyperparameters:
 ├── node_modules/          # Node.js dependencies
 ├── package.json          # Project configuration
 ├── vite.config.js        # Vite build configuration
-└── README.md             # This file
+├── README.md           
+└──requirements.txt 
 ```
-
-### Code Quality
-
-The project maintains code quality through:
-- TypeScript strict mode for type safety
-- ESLint configuration for code consistency
-- Prettier for automated code formatting
-- Comprehensive error handling and logging
 
 ### Testing
 
@@ -253,14 +224,6 @@ We welcome contributions to improve the platform. Please follow these guidelines
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Support
-
-For technical support, feature requests, or general questions:
-
-- Create an issue in the GitHub repository
-- Contact the development team
-- Check the documentation wiki for common questions
-
 ## Roadmap
 
 Planned features and improvements:
@@ -271,18 +234,6 @@ Planned features and improvements:
 - Enhanced model architectures
 - Real-time collaboration features
 - Mobile application development
-
-## Citation
-
-If you use this platform in your research, please cite:
-
-```
-@software{ai_agent_evaluator_2025,
-  title={AI Agent Evaluation Platform: Multi-Metric Analysis for Automated Response Assessment},
-  year={2025},
-  url={https://github.com/your-username/ai-agent-evaluator}
-}
-```
 
 ## Acknowledgments
 
