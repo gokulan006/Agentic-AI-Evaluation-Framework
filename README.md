@@ -9,7 +9,6 @@ The AI Agent Evaluation Platform provides automated, multi-dimensional assessmen
 ## Features
 
 - **Multi-Metric Evaluation**: Simultaneous assessment across seven distinct quality dimensions
-- **Real-time Scoring**: Sub-2-second response time for individual evaluations
 - **Automated Reference Generation**: AI-powered creation of ground truth answers
 - **Interactive Dashboard**: Comprehensive analytics and visualization interface
 - **Prompt Optimization**: Intelligent suggestions for improving low-performing prompts
@@ -156,6 +155,10 @@ Training hyperparameters:
 - Optimizer: AdamW with weight decay (0.01)
 - Loss function: Weighted CrossEntropy
 
+  My Model training loss curve:
+  <img width="528" height="362" alt="image" src="https://github.com/user-attachments/assets/2c9e472c-623f-4045-8ab2-2e59278633a0" />
+
+
 ## Development
 
 ### Project Structure
@@ -193,32 +196,7 @@ python -m pytest tests/
 
 Current model performance benchmarks:
 
-| Metric | Accuracy | F1 Score | Precision | Recall |
-|--------|----------|----------|-----------|---------|
-| Instruction Following | 83% | 88% | 85% | 91% |
-| Hallucination Detection | 92% | 75% | 88% | 65% |
-| Assumption Analysis | 83% | 69% | 71% | 67% |
-| Coherence Assessment | 79% | 88% | 84% | 92% |
-| Accuracy Verification | 79% | 85% | 82% | 88% |
-| Completeness Analysis | 79% | 84% | 81% | 87% |
-| Overall Quality | 100% | 100% | 100% | 100% |
-
-## Contributing
-
-We welcome contributions to improve the platform. Please follow these guidelines:
-
-1. Fork the repository and create a feature branch
-2. Ensure all tests pass and add tests for new functionality
-3. Follow the established code style and conventions
-4. Submit a pull request with a clear description of changes
-
-### Development Guidelines
-
-- Use TypeScript for all frontend code with proper type annotations
-- Follow React best practices and hooks patterns
-- Implement proper error handling and user feedback
-- Write comprehensive tests for new features
-- Update documentation for API changes
+<img width="1967" height="1180" alt="image" src="https://github.com/user-attachments/assets/a0bb10eb-bc1d-48d3-aedd-cae0d6a93d83" />
 
 ## License
 
@@ -233,6 +211,11 @@ Planned features and improvements:
 - Integration with popular AI platforms
 - Enhanced model architectures
 - Real-time collaboration features
+- Mobile application development
+
+## Acknowledgments
+
+This project builds upon research in natural language processing, machine learning evaluation metrics, and human-computer interaction. We acknowledge the contributions of the open-source community and the researchers whose work made this platform possible.
 - Mobile application development
 
 ## Acknowledgments
